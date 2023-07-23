@@ -29,4 +29,10 @@ class PhraseTest {
     Phrase("New York Times55") isAnagramIncludingNumbersOf Phrase("mon5keys wr5ite") shouldBe true
     Phrase("New York Times55") isAnagramIncludingNumbersOf Phrase("monkeys write") shouldBe false
   }
+
+  @Test
+  fun `Two phrases are equal if they have same value`() {
+    (Phrase("New York Times") == Phrase("New York Times")) shouldBe true
+    (Phrase("New York Times") == Phrase("monkeys write")) shouldBe false
+  }
 }

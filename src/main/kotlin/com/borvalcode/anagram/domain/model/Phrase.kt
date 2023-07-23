@@ -1,15 +1,14 @@
 /* borvalcode 2023 */
 package com.borvalcode.anagram.domain.model
 
-class Phrase(value: String) {
-    private val letters: Map<Char, Int>
-    private val numbers: Map<Int, Int>
-
+data class Phrase(private val value: String) {
     init {
         require(value.any { it.isLetter() })
-        letters = value.lowercase().filter { it.isLetter() }.groupingBy { it }.eachCount()
-        numbers = value.filter { it.isDigit() }.map { it.digitToInt() }.groupingBy { it }.eachCount()
     }
+
+    private val letters: Map<Char, Int> get() = value.lowercase().filter { it.isLetter() }.groupingBy { it }.eachCount()
+    private val numbers: Map<Int, Int>
+        get() = value.filter { it.isDigit() }.map { it.digitToInt() }.groupingBy { it }.eachCount()
 
     infix fun isAnagramOf(phrase: Phrase): Boolean {
         return listOf(this, phrase).areAnagrams()

@@ -25,7 +25,7 @@ On Linux/macOS:
 
 On Windows:
 
-    > mvnw.cmd spotless:apply
+	> mvnw.cmd spotless:apply
 
 ## Building
 
@@ -35,17 +35,17 @@ On Linux/macOS:
 
 On Windows:
 
-    > mvnw.cmd clean package -DskipTests
+	> mvnw.cmd clean package -DskipTests
 
 ## Building & Testing
 
 On Linux/macOS:
 
-	$ ./mvnw clean package 
+	$ ./mvnw clean package
 
 On Windows:
 
-    > mvnw.cmd clean package 
+	> mvnw.cmd clean package
 
 ## Running
 
@@ -55,7 +55,7 @@ On Linux/macOS:
 
 On Windows:
 
-    > mvnw.cmd exec:java
+	> mvnw.cmd exec:java
 
 ![info](https://github.com/borvalcode/anagram/assets/2670196/5c0d513e-e397-439f-9cc0-acd478db492e)
 ![anagrams](https://github.com/borvalcode/anagram/assets/2670196/70f58da9-62ac-4d30-aefd-ece83e61e5fe)
@@ -69,10 +69,10 @@ On Windows:
 There are three principal layers:
 
 * Domain, which manages business logic, under which we differentiate:
-    * Model, that represents all entities, value objects, interfaces (respositories, views, providers...).
-    * Command, the entry point to the domain. Actions that use model.
+	* Model, that represents all entities, value objects, interfaces (respositories, views, providers...).
+	* Command, the entry point to the domain. Actions that use model.
 * Application, which uses domain (it can be a desktop/mobile app, web service as REST, RPC...)<br />
-  In this particular project, there is a simple desktop app built with JavaFx that calls domain commands.
+In this particular project, there is a simple desktop app built with JavaFx that calls domain commands.
 * Infrastructure, which implements domain interfaces and all their utilities (in this project is not necessary for now)
 
 ## Notes
