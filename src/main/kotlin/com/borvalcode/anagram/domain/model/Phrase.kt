@@ -6,9 +6,13 @@ data class Phrase(private val value: String) {
         require(value.any { it.isLetter() })
     }
 
-    private val letters: Map<Char, Int> = value.lowercase().filter { it.isLetter() }.groupingBy { it }.eachCount()
-    private val numbers: Map<Int, Int> =
+    private val letters: Map<Char, Int> by lazy {
+        value.lowercase().filter { it.isLetter() }.groupingBy { it }.eachCount()
+    }
+
+    private val numbers: Map<Int, Int> by lazy {
         value.filter { it.isDigit() }.map { it.digitToInt() }.groupingBy { it }.eachCount()
+    }
 
     infix fun isAnagramOf(phrase: Phrase): Boolean {
         return listOf(this, phrase).areAnagrams()
